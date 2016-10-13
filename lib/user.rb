@@ -13,6 +13,7 @@ class User < ApplicationRecord
     # Usage:  User.where(uid: '123').first_or_create!
     # Raises: Errors::RecordNotUnique occassionally
     def first_or_create!(*args)
+      log_attempt!
       super(*args)
     end
 
@@ -20,6 +21,11 @@ class User < ApplicationRecord
     # TODO: robustly invoke .first_or_create!
     def first_or_create_with_retry!(attributes = nil, &block)
       all.first_or_create! attributes, &block
+    end
+
+    ## Spies
+    def log_attempt!
+      puts 'Attempting .first_or_create!' # rubocop:disable Output
     end
   end
 end

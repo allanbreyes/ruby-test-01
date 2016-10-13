@@ -36,6 +36,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'prevents creation of a record if @uid is blank' do
+      expect(scope).to receive(:log_attempt!).once
       expect { scope.first_or_create_with_retry! uid: nil }.to raise_error Errors::RecordInvalid
     end
   end
