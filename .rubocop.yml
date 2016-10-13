@@ -1,0 +1,20 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: false
+  StyleGuideCopsOnly: false
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+  Max: 15
+
+Style/ClassVars:
+  Enabled: false
